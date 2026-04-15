@@ -1,4 +1,4 @@
-# 🌤️ Meteo App ✅ https://velvetred2020.github.io/meteo-app/
+# 🌤️ Meteo App 
 
 ## 📌 Project Overview
 
