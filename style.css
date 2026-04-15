@@ -1,0 +1,141 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Segoe UI", sans-serif;
+    background: #eef2f7;
+    color: #1f2937;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 10px;
+}
+
+/* DARK MODE */
+body.dark {
+    background: #0f172a;
+    color: #e5e7eb;
+}
+
+/* MAIN CONTAINER */
+.container {
+    width: var(--container-width, 30%);
+    max-width: 800px;
+    padding: 25px;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transition: width 0.3s ease;
+}
+
+body.dark .container {
+    background: #1e293b;
+}
+
+/* TOP BAR */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* INPUT */
+input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #d1d5db;
+    margin-bottom: 10px;
+    outline: none;
+}
+
+body.dark input {
+    background: #334155;
+    border: 1px solid #475569;
+    color: white;
+}
+
+/* BUTTONS */
+button {
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#searchBtn {
+    width: 100%;
+    background: #3b82f6;
+    color: white;
+    margin-bottom: 10px;
+}
+
+#toggleMode {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body.dark #toggleMode {
+    background: #facc15;
+}
+
+/* =========================
+   MULTI-CITY LAYOUT FIX
+========================= */
+
+.cards-container {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    align-items: stretch;
+}
+
+/* WEATHER CARD */
+.card {
+    width: 200px;
+    padding: 15px;
+    border-radius: 12px;
+    background: #f9fafb;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* DARK MODE CARD */
+body.dark .card {
+    background: #334155;
+}
+
+/* ICON */
+.weather-icon {
+    font-size: 50px;
+    margin: 10px 0;
+}
+
+/* DETAILS SECTION */
+.details {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+}
+
+.detail-box {
+    text-align: center;
+}
+
+.detail-box span {
+    display: block;
+    font-size: 14px;
+    margin-top: 5px;
+}
