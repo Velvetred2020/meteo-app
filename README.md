@@ -139,22 +139,26 @@ The app handles common issues gracefully:
 
 ## 🌐 API Information
 
-This app uses the free **Open-Meteo API**.
+This app uses the Open-Meteo API for weather and geocoding data.
 
-### Geocoding API
+- Weather data provided by Open-Meteo: https://open-meteo.com/
 
+### API Endpoints Used
+
+#### Geocoding API
 https://geocoding-api.open-meteo.com/v1/search?name={city}
 
-### Weather Forecast API
-
+#### Weather Forecast API
 https://api.open-meteo.com/v1/forecast
 
-### Data provided:
+### Data Provided
 
 - Temperature
 - Weather codes
 - Wind speed
 - Humidity (hourly data)
+
+Please refer to Open-Meteo's official website for terms of service and usage conditions.
 
 ---
 
