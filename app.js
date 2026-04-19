@@ -5,7 +5,7 @@ const toggleBtn = document.getElementById("toggleMode");
 const container = document.querySelector(".container");
 
 /**
- * Convert weather codes into readable icons + text
+ * Weather code mapping
  */
 function getWeatherInfo(code) {
     const weatherMap = {
@@ -25,7 +25,7 @@ function getWeatherInfo(code) {
 }
 
 /**
- * Fetch weather data for one city and return HTML card
+ * Fetch weather
  */
 async function fetchWeatherCard(city) {
     try {
@@ -82,10 +82,8 @@ async function fetchWeatherCard(city) {
     }
 }
 
-
-
 /**
- * Handle multiple city search
+ * Handle search
  */
 async function handleSearch() {
     const cities = cityInput.value
@@ -106,6 +104,9 @@ async function handleSearch() {
     resultDiv.innerHTML = cards.join("");
 }
 
+/**
+ * Layout logic
+ */
 function updateLayout(count) {
     if (count > 1) {
         container.classList.add("expanded");
@@ -115,7 +116,7 @@ function updateLayout(count) {
 }
 
 /**
- * Toggle dark mode
+ * Dark mode
  */
 function toggleDarkMode() {
     document.body.classList.toggle("dark");
@@ -125,7 +126,7 @@ function toggleDarkMode() {
         : "🌙";
 }
 
-/* EVENTS */
+/* Events */
 searchBtn.addEventListener("click", handleSearch);
 
 cityInput.addEventListener("keypress", (e) => {
