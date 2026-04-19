@@ -2,6 +2,7 @@ const searchBtn = document.getElementById("searchBtn");
 const cityInput = document.getElementById("cityInput");
 const resultDiv = document.getElementById("result");
 const toggleBtn = document.getElementById("toggleMode");
+const container = document.querySelector(".container");
 
 /**
  * Convert weather codes into readable icons + text
@@ -94,8 +95,7 @@ async function handleSearch() {
 
     if (cities.length === 0) return;
 
-    // 👇 NEW LINE
-    updateContainerSize(cities.length);
+    updateLayout(cities.length);
 
     resultDiv.innerHTML = "Loading...";
 
@@ -106,14 +106,11 @@ async function handleSearch() {
     resultDiv.innerHTML = cards.join("");
 }
 
-/**
- * Dynamically adjusts container width based on number of cities
- */
-function updateContainerSize(cityCount) {
-    if (cityCount <= 1) {
-        document.documentElement.style.setProperty("--container-width", "30%");
+function updateLayout(count) {
+    if (count > 1) {
+        container.classList.add("expanded");
     } else {
-        document.documentElement.style.setProperty("--container-width", "90%");
+        container.classList.remove("expanded");
     }
 }
 
