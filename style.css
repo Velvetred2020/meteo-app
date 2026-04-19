@@ -9,10 +9,10 @@ body {
     background: #eef2f7;
     color: #1f2937;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    padding: 40px 10px;
     min-height: 100vh;
+    padding: 20px;
 }
 
 /* DARK MODE */
@@ -24,16 +24,20 @@ body.dark {
 /* MAIN CONTAINER */
 .container {
     width: var(--container-width, 30%);
-    max-width: 800px;
+    max-width: 420px;
     padding: 25px;
     border-radius: 16px;
     background: #ffffff;
     box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-    transition: width 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 body.dark .container {
     background: #1e293b;
+}
+
+.container.expanded {
+    max-width: 1100px;
 }
 
 /* TOP BAR */
@@ -47,11 +51,12 @@ body.dark .container {
 /* INPUT */
 input {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     border-radius: 10px;
     border: 1px solid #d1d5db;
     margin-bottom: 10px;
     outline: none;
+    font-size: 14px;
 }
 
 body.dark input {
@@ -66,6 +71,7 @@ button {
     border-radius: 10px;
     padding: 10px;
     cursor: pointer;
+    font-size: 14px;
 }
 
 #searchBtn {
@@ -73,6 +79,11 @@ button {
     background: #3b82f6;
     color: white;
     margin-bottom: 10px;
+    transition: 0.2s;
+}
+
+#searchBtn:hover {
+    background: #2563eb;
 }
 
 #toggleMode {
@@ -95,22 +106,37 @@ body.dark #toggleMode {
 
 .cards-container {
     margin-top: 15px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
-    align-items: stretch;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr;
+}
+
+/* TABLET  */
+@media (min-width: 600px) {
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/*  DESKTOP  */
+@media (min-width: 900px) {
+    .cards-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
 }
 
 /* WEATHER CARD */
 .card {
-    width: 200px;
     padding: 15px;
     border-radius: 12px;
     background: #f9fafb;
     text-align: center;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
 }
 
 /* DARK MODE CARD */
@@ -131,21 +157,20 @@ body.dark .card {
     margin-top: 15px;
 }
 
-.detail-box {
-    text-align: center;
-}
 
 .detail-box span {
     display: block;
-    font-size: 14px;
+    font-size: 13px;
     margin-top: 5px;
 }
 
 footer {
-    margin-top: 20px;
+    position: fixed;
+    bottom: 10px;
     text-align: center;
     font-size: 0.8rem;
     color: #777;
+    width: 100%;
 }
 
 footer a {
