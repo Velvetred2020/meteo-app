@@ -4,13 +4,16 @@
     padding: 0;
 }
 
+/*  BODY CENTERING  */
 body {
     font-family: "Segoe UI", sans-serif;
     background: #eef2f7;
     color: #1f2937;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     min-height: 100vh;
     padding: 20px;
 }
@@ -21,14 +24,15 @@ body.dark {
     color: #e5e7eb;
 }
 
-/* MAIN CONTAINER */
+/*  MAIN CONTAINER  */
 .container {
-    width: var(--container-width, 30%);
+    width: 100%;
     max-width: 420px;
     padding: 25px;
     border-radius: 16px;
     background: #ffffff;
     box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+
     transition: all 0.3s ease;
 }
 
@@ -36,11 +40,12 @@ body.dark .container {
     background: #1e293b;
 }
 
+/* EXPANDED STATE (multi cities) */
 .container.expanded {
     max-width: 1100px;
 }
 
-/* TOP BAR */
+/*  TOP BAR  */
 .top-bar {
     display: flex;
     justify-content: space-between;
@@ -48,7 +53,7 @@ body.dark .container {
     margin-bottom: 15px;
 }
 
-/* INPUT */
+/*  INPUT  */
 input {
     width: 100%;
     padding: 12px;
@@ -65,11 +70,11 @@ body.dark input {
     color: white;
 }
 
-/* BUTTONS */
+/*  BUTTONS  */
 button {
     border: none;
     border-radius: 10px;
-    padding: 10px;
+    padding: 12px;
     cursor: pointer;
     font-size: 14px;
 }
@@ -100,18 +105,18 @@ body.dark #toggleMode {
     background: #facc15;
 }
 
-/* =========================
-   MULTI-CITY LAYOUT FIX
-========================= */
-
+/*  CARDS CONTAINER  */
 .cards-container {
     margin-top: 15px;
+
     display: grid;
     gap: 20px;
+
+    /* MOBILE FIRST: vertical stack */
     grid-template-columns: 1fr;
 }
 
-/* TABLET  */
+/*  TABLET  */
 @media (min-width: 600px) {
     .cards-container {
         grid-template-columns: repeat(2, 1fr);
@@ -125,13 +130,14 @@ body.dark #toggleMode {
     }
 }
 
-/* WEATHER CARD */
+/*  CARD  */
 .card {
     padding: 15px;
     border-radius: 12px;
     background: #f9fafb;
     text-align: center;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+
     transition: transform 0.2s ease;
 }
 
@@ -146,16 +152,17 @@ body.dark .card {
 
 /* ICON */
 .weather-icon {
-    font-size: 50px;
+    font-size: 48px;
     margin: 10px 0;
 }
 
-/* DETAILS SECTION */
+/* DETAILS */
 .details {
     display: flex;
     justify-content: space-around;
     margin-top: 15px;
 }
+
 
 
 .detail-box span {
@@ -164,6 +171,7 @@ body.dark .card {
     margin-top: 5px;
 }
 
+/*  FOOTER  */
 footer {
     position: fixed;
     bottom: 10px;
