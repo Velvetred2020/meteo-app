@@ -2,11 +2,14 @@
 
 ## 📌 Project Overview
 
-This is a simple and responsive **Weather App** that allows users to search for one or multiple cities and retrieve real-time weather data. The application uses the **Open-Meteo API** to display key weather information such as temperature, weather conditions, wind speed, and humidity.
+This is a simple and responsive **Weather App** that allows users to search for one or multiple cities and retrieve real-time weather data.
 
-It includes a **dark/light mode toggle** and a **dynamic multi-city layout** that adjusts based on how many cities are searched.
+The application uses the **Open-Meteo API** and includes smart optimizations such as **API usage limiting and caching** to stay within the free tier (under 10,000 requests/day).
+
+It also features a **dark/light mode toggle**, **auto-refresh**, a **dynamic multi-city layout**, and **country flags** to clearly identify each city's origin and avoid confusion between similarly named locations.
 
 ---
+
 
 ## ⚙️ Installation Instructions
 
@@ -54,6 +57,15 @@ London, Paris, Tokyo
 3. Click **"Get Weather"**
 4. View results displayed as responsive weather cards
 
+---
+
+## 🔄 Auto-Refresh
+
+- Weather data automatically refreshes every **5 minutes**
+- Previously searched cities are updated without retyping
+
+---
+
 ### 🌙 Dark Mode
 
 Click the moon/sun icon in the top-right corner to toggle between light and dark mode.
@@ -77,6 +89,43 @@ London, Paris, Tokyo
 The layout automatically adjusts based on how many cities are entered, improving usability and visual balance.
 
 ---
+
+
+## 🌍 Country Identification
+
+- Each city includes a **country flag icon**
+- Prevents confusion between cities with the same name  
+*(e.g., Paris 🇫🇷 vs Paris 🇺🇸)*
+- Improves clarity and usability during multi-city searches
+
+---
+
+## ⚡ Performance Optimization
+
+To stay within the **Open-Meteo free API limits**, the app includes:
+
+### ✅ API Rate Limiting
+
+- Maximum ~**9,500 API calls/day**
+- Automatically resets every day
+- Prevents exceeding the **10,000 free tier limit**
+
+### 💾 Smart Caching
+
+- Weather data cached for **5 minutes**
+- Prevents duplicate API calls for the same city
+- Improves performance and reduces network usage
+
+### 🛑 Graceful Limit Handling
+
+When the daily limit is reached:
+
+- App stops making requests
+- Displays:
+
+```text
+⚠️ Daily API limit reached
+```
 
 ## 📸 Screenshots
 
@@ -114,15 +163,18 @@ Three Cities
 
 ## ✨ Features
 
-- 🔍 Search one or multiple cities
-- 🌡️ Temperature in Celsius
-- 🌬️ Wind speed display
-- 💧 Humidity levels
-- 🌤️ Weather condition icons
-- 🌙 Dark / Light mode toggle
-- 📊 Side-by-side responsive layout
-- ⚡ Fast API integration (Open-Meteo)
-- 🧠 Weather code interpretation system
+- 🔍 Search one or multiple cities  
+- 🌡️ Temperature in Celsius  
+- 🌬️ Wind speed  
+- 💧 Humidity levels  
+- 🌤️ Weather condition icons (day/night aware)  
+- 🌅 Sunrise & 🌇 Sunset times  
+- 🌍 Country flags for city identification  
+- 🌙 Dark / Light mode toggle  
+- 📊 Responsive multi-city layout  
+- 🔄 Auto-refresh every 5 minutes  
+- ⚡ Optimized API usage (rate limiting + caching)  
+- 🧠 Smart city matching (multilingual + aliases)  
 
 ---
 
@@ -130,68 +182,82 @@ Three Cities
 
 The app handles common issues gracefully:
 
-- ❌ Invalid city → "City not found"
-- ⚠️ API failure → "API error"
-- 🌐 Network issue → "Network error"
-- 🚫 Empty input is ignored safely
+- ❌ Invalid city → `"City not found"`  
+- ⚠️ API limit reached → `"Daily API limit reached"`  
+- 🌐 Network/API errors → handled safely  
+- 🚫 Empty input → ignored 
 
 ---
 
 ## 🌐 API Information
 
-This app uses the Open-Meteo API for weather and geocoding data.
+This app uses the free **Open-Meteo API**.
 
-- Weather data provided by Open-Meteo: https://open-meteo.com/
+### Geocoding API
 
-### API Endpoints Used
-
-#### Geocoding API
 https://geocoding-api.open-meteo.com/v1/search?name={city}
 
-#### Weather Forecast API
+### Weather Forecast API
+
 https://api.open-meteo.com/v1/forecast
+
 
 ### Data Provided
 
-- Temperature
-- Weather codes
-- Wind speed
-- Humidity (hourly data)
+- Temperature  
+- Weather codes  
+- Wind speed  
+- Humidity  
+- Sunrise & sunset  
 
-Please refer to Open-Meteo's official website for terms of service and usage conditions.
+---
+
+## 🔒 API Usage Strategy
+
+To avoid requiring a paid plan:
+
+- Daily usage is capped below **10,000 requests**  
+- Duplicate calls are avoided through caching  
+- Auto-refresh is optimized for efficiency  
 
 ---
 
 ## 🔮 Future Enhancements
 
-- 📍 Geolocation auto-detect
-- 📅 5-day forecast
-- 🌡️ Celsius/Fahrenheit toggle
-- 🔎 City autocomplete search
-- 💾 Save favorite cities (localStorage)
-- 📊 Weather charts (temperature trends)
-- 🌍 Multi-language support
-- 🔄 Auto-refresh weather data
-- 🎨 Improved UI animations
-- 📱 Mobile-first redesign
+- 📍 Geolocation auto-detect  
+- 📅 5-day forecast  
+- 🌡️ Celsius/Fahrenheit toggle  
+- 🔎 City autocomplete  
+- 💾 Save favorite cities  
+- 📊 Weather charts  
+- 🌍 Multi-language UI  
+- 🎨 UI animations  
+
+---
+
+## 📄 License
+
+This project is open-source and free to use for educational purposes.
 
 ---
 
 ## 🧑‍💻 Notes
 
-- Built using vanilla HTML, CSS, and JavaScript
-- Uses Open-Meteo API (no API key required)
-- Fully responsive and lightweight
-- Designed as a beginner-friendly weather dashboard project
+- Built with vanilla HTML, CSS, and JavaScript  
+- No frameworks or dependencies  
+- Uses Open-Meteo free APIs  
+- Lightweight and fast  
+- Optimized for API efficiency  
 
 ---
 
 ## 🎯 Project Goal
 
-This project is designed to demonstrate:
+This project demonstrates:
 
-- API integration skills
-- DOM manipulation
-- Responsive layout design
-- Clean modular JavaScript
-- UI/UX improvement through iteration
+- API integration best practices  
+- Rate limiting and caching strategies  
+- DOM manipulation  
+- Responsive UI design  
+- Clean, modular JavaScript  
+- Real-world performance optimization  
